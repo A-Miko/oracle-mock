@@ -58,44 +58,58 @@ export class CompoundV3Adapter implements ProtocolAdapter {
   async discoverFeed(config: DetectFeedConfig): Promise<FeedInfo> {
     const { publicClient, protocolAddress, assetAddress } = config;
 
-    // Read asset info from Comet
-    const assetInfo = (await publicClient.readContract({
-      address: protocolAddress,
-      abi: this.COMET_ABI,
-      functionName: 'getAssetInfoByAddress',
-      args: [assetAddress],
-    })) as AssetInfo;
-
-    const feedAddress = assetInfo[2]; // priceFeed is 3rd element (index 2)
-
-    // Read decimals from the price feed
-    const decimals = (await publicClient.readContract({
-      address: feedAddress,
-      abi: this.AGGREGATOR_ABI,
-      functionName: 'decimals',
-    })) as number;
-
-    // Try to read description (optional)
-    let description: string | undefined;
     try {
-      description = (await publicClient.readContract({
+      // Read asset info from Comet
+      const assetInfo = (await publicClient.readContract({
+        address: protocolAddress,
+        abi: this.COMET_ABI,
+        functionName: 'getAssetInfoByAddress',
+        args: [assetAddress],
+      })) as AssetInfo;
+
+      const feedAddress = assetInfo[2]; // priceFeed is 3rd element (index 2)
+
+      // Check if the asset has a valid price feed configured
+      if (!feedAddress || feedAddress === '0x0000000000000000000000000000000000000000') {
+        throw new Error('Failed to discover feed: Asset not found in Comet or no price feed configured');
+      }
+
+      // Read decimals from the price feed
+      const decimals = (await publicClient.readContract({
         address: feedAddress,
         abi: this.AGGREGATOR_ABI,
-        functionName: 'description',
-      })) as string;
-    } catch {
-      // Description not available
-    }
+        functionName: 'decimals',
+      })) as number;
 
-    // Validate decimals
-    if (decimals !== 8 && decimals !== 18) {
-      throw new Error(`Unsupported feed decimals: ${decimals} (expected 8 or 18)`);
-    }
+      // Try to read description (optional)
+      let description: string | undefined;
+      try {
+        description = (await publicClient.readContract({
+          address: feedAddress,
+          abi: this.AGGREGATOR_ABI,
+          functionName: 'description',
+        })) as string;
+      } catch {
+        // Description not available
+        description = undefined;
+      }
 
-    return {
-      address: feedAddress,
-      decimals: decimals as 8 | 18,
-      description,
-    };
+      // Validate decimals
+      if (decimals !== 8 && decimals !== 18) {
+        throw new Error(`Unsupported feed decimals: ${decimals} (expected 8 or 18)`);
+      }
+
+      return {
+        address: feedAddress,
+        decimals: decimals as 8 | 18,
+        description,
+      };
+    } catch (error: any) {
+      // Wrap any error in a consistent format
+      if (error.message?.includes('Failed to discover feed')) {
+        throw error; // Re-throw if already our custom error
+      }
+      throw new Error(`Failed to discover feed: ${error.message || 'Unknown error'}`);
+    }
   }
 }
