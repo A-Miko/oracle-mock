@@ -5,7 +5,8 @@ import { foundry } from 'viem/chains';
 import { verifyPriceChange } from '../../src/validation/PriceVerifier';
 import { verifyProtocolSeesPrice } from '../../src/validation/ProtocolVerifier';
 import { deployMockAtAddress } from '../../src/mock/MockDeployer';
-import { setPrice, parsePrice } from '../../src/mock/PriceSetter';
+import { setPrice } from '../../src/mock/PriceSetter';
+import { parsePrice } from '../../src/utils/DecimalConverter';
 import * as dotenv from 'dotenv';
 
 dotenv.config();

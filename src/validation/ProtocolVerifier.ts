@@ -1,6 +1,6 @@
 import type { Address, PublicClient } from 'viem';
 import { parseAbi } from 'viem';
-import { formatPrice } from '../mock/PriceSetter';
+import { formatPrice } from '../utils/DecimalConverter';
 
 export interface ProtocolPriceResult {
   success: boolean;

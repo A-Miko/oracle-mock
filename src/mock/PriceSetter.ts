@@ -1,6 +1,7 @@
 import type { Address, PublicClient, WalletClient } from 'viem';
 import { parseAbi } from 'viem';
 import type { SetPriceOptions, PriceChangeOptions, PriceChangeResult } from './types';
+import { formatPrice, parsePrice } from '../utils/DecimalConverter';
 
 /**
  * Mock Feed Write ABI - uses setLatestAnswer() function
@@ -344,28 +345,6 @@ export async function resetPrice(
     decimals,
   });
 }
-
-/**
- * Format price for display
- */
-export function formatPrice(price: bigint, decimals: 8 | 18): string {
-  const divisor = 10n ** BigInt(decimals);
-  const wholePart = price / divisor;
-  const fractionalPart = price % divisor;
-  const fractionalStr = fractionalPart.toString().padStart(decimals, '0');
-  return `${wholePart}.${fractionalStr}`;
-}
-
-/**
- * Parse human-readable price to oracle format
- */
-export function parsePrice(priceStr: string, decimals: 8 | 18): bigint {
-  const [whole, fractional = ''] = priceStr.split('.');
-  const paddedFractional = fractional.padEnd(decimals, '0').slice(0, decimals);
-  const combinedStr = whole + paddedFractional;
-  return BigInt(combinedStr);
-}
-
 /**
  * Get decimals from feed
  */

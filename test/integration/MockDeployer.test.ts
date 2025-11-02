@@ -12,11 +12,10 @@ import {
   setPriceWithPercentageChange,
   getCurrentPrice,
   resetPrice,
-  formatPrice,
-  parsePrice,
   getDecimals,
   setPriceWithBidirectionalFactor
 } from '../../src/mock/PriceSetter';
+import { parsePrice, formatPrice } from '../../src/utils/DecimalConverter';
 import * as dotenv from 'dotenv';
 
 dotenv.config();

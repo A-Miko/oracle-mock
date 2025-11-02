@@ -1,5 +1,6 @@
 import type { Address, PublicClient } from 'viem';
-import { getCurrentPrice, formatPrice } from '../mock/PriceSetter';
+import { getCurrentPrice } from '../mock/PriceSetter';
+import { formatPrice } from '../utils/DecimalConverter';
 
 export interface PriceVerificationResult {
   success: boolean;

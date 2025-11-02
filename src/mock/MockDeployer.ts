@@ -3,6 +3,7 @@ import { parseAbi } from 'viem';
 import type { MockFeedHandle, DeployMockOptions } from './types';
 import { getMockBytecode } from '../artifacts/ArtifactLoader';
 import { getCurrentPrice } from './PriceSetter';
+import { detectRpcProvider, getSetCodeMethod } from '../utils/ChainDetector';
 
 /**
  * Chainlink AggregatorV3Interface ABI (minimal)
@@ -14,26 +15,6 @@ const AGGREGATOR_V3_ABI = parseAbi([
   'function version() view returns (uint256)',
   'function latestRoundData() view returns (uint80 roundId, int256 answer, uint256 startedAt, uint256 updatedAt, uint80 answeredInRound)',
 ]);
-
-/**
- * Detect whether we're using Hardhat or Anvil/Foundry
- * 
- * @param publicClient - Viem public client
- * @returns 'hardhat' or 'anvil'
- */
-async function detectRpcProvider(publicClient: PublicClient): Promise<'hardhat' | 'anvil'> {
-  try {
-    // Try Hardhat-specific method
-    // Cast to any because hardhat_getAutomine is not a standard RPC method
-    await (publicClient as any).transport.request({
-      method: 'hardhat_setCode',
-    });
-    return 'hardhat';
-  } catch {
-    // Assume Anvil/Foundry if Hardhat method fails
-    return 'anvil';
-  }
-}
 
 /**
  * Deploy mock feed bytecode at a specific address using setCode
@@ -72,7 +53,7 @@ export async function deployMockAtAddress(
 
   // Detect RPC provider (Hardhat or Anvil)
   const provider = await detectRpcProvider(publicClient);
-  const setCodeMethod = provider === 'hardhat' ? 'hardhat_setCode' : 'anvil_setCode';
+  const setCodeMethod = await getSetCodeMethod(publicClient);
 
   console.log(`📝 Deploying ${decimals}-decimal mock at ${feedAddress} using ${provider}...`);
 
