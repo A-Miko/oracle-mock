@@ -11,7 +11,7 @@ import * as dotenv from 'dotenv';
 
 dotenv.config();
 
-describe.only('Validation Layer - Integration Tests', () => {
+describe('Validation Layer - Integration Tests', () => {
   let publicClient: any;
   let walletClient: any;
   let account: any;
