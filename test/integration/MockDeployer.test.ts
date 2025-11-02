@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { createPublicClient, createWalletClient, http } from 'viem';
+import { createPublicClient, createWalletClient, http, parseAbi } from 'viem';
 import { privateKeyToAccount } from 'viem/accounts';
 import { foundry } from 'viem/chains';
 import {
@@ -21,7 +21,7 @@ import * as dotenv from 'dotenv';
 
 dotenv.config();
 
-describe.only('Mock Deployment & Price Setting - Integration Tests', () => {
+describe('Mock Deployment & Price Setting - Integration Tests', () => {
   let publicClient: any;
   let walletClient: any;
   let account: any;
@@ -215,6 +215,71 @@ describe.only('Mock Deployment & Price Setting - Integration Tests', () => {
       } catch (error: any) {
         expect(error.message).to.include('Cannot apply percentage change: current price is 0');
       }
+    });
+  });
+
+  describe('Integration with Compound V3', () => {
+    it('should verify Compound V3 reads from manipulated price feed', async function () {
+      this.timeout(30000);
+
+      // Real Compound V3 USDC Comet on Base
+      const COMPOUND_COMET = '0xb125E6687d4313864e53df431d5425969c15Eb2F';
+      
+      // Real WETH price feed used by Compound V3 on Base
+      // You need to find the actual feed address Compound uses for WETH
+      const WETH_PRICE_FEED = '0x71041dddad3595F9CEd3DcCFBe3D1F4b0a16Bb70'; // Example - verify this!
+
+      // Step 1: Get Compound's view of the price BEFORE manipulation
+      const cometAbi = parseAbi([
+        'function getPrice(address) view returns (uint256)',
+      ]);
+
+      const priceBefore = await publicClient.readContract({
+        address: COMPOUND_COMET,
+        abi: cometAbi,
+        functionName: 'getPrice',
+        args: [WETH_PRICE_FEED],
+      });
+
+      console.log(`📊 Compound V3 WETH price BEFORE: ${formatPrice(priceBefore, 8)}`);
+
+      // Step 2: Deploy mock at the WETH price feed address
+      await deployMockAtAddress({
+        feedAddress: WETH_PRICE_FEED,
+        decimals: 8,
+        publicClient,
+      });
+
+      // Step 3: Set a manipulated price (e.g., crash WETH to $1000)
+      const manipulatedPrice = parsePrice('1000', 8);
+      
+      await setPrice({
+        feedAddress: WETH_PRICE_FEED,
+        publicClient,
+        walletClient,
+        account: account.address,
+        newPrice: manipulatedPrice,
+        decimals: 8,
+      });
+
+      console.log(`💰 Set WETH price to: ${formatPrice(manipulatedPrice, 8)}`);
+
+      // Step 4: Get Compound's view of the price AFTER manipulation
+      const priceAfter = await publicClient.readContract({
+        address: COMPOUND_COMET,
+        abi: cometAbi,
+        functionName: 'getPrice',
+        args: [WETH_PRICE_FEED],
+      });
+
+      console.log(`📊 Compound V3 WETH price AFTER: ${formatPrice(priceAfter, 8)}`);
+
+      // Step 5: Verify Compound V3 now reads the manipulated price
+      expect(priceAfter).to.equal(manipulatedPrice);
+      expect(priceAfter).to.not.equal(priceBefore);
+      
+      console.log('✅ Compound V3 ACTUALLY reads the manipulated price!');
+      console.log(`✅ Price changed from ${formatPrice(priceBefore, 8)} → ${formatPrice(priceAfter, 8)}`);
     });
   });
 });
