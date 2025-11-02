@@ -25,7 +25,7 @@ const config: HardhatUserConfig = {
       forking: {
         url: process.env.BASE_RPC_URL || "https://base-mainnet.g.alchemy.com/v2/GaT9jPvrkm-kY_CPUgo6jGUWWu_HSU-j",
         enabled: true, // ← Auto-fork when running tests,
-        blockNumber: 37000000,
+        // blockNumber: 37000000,
       },
     },
     localhost: {
