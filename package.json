@@ -17,6 +17,7 @@
   },
   "files": [
     "dist",
+    "artifacts",
     "README.md",
     "LICENSE",
     "package.json"
