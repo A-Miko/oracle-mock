@@ -1,6 +1,6 @@
 {
   "name": "@miko/oracle-mock",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A reusable oracle-mock module for simulating and testing on-chain price feeds in Ethereum development and integration workflows.",
   "main": "index.js",
   "types": "dist/index.d.ts",
