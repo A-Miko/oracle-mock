@@ -3,7 +3,7 @@ import type { Address } from 'viem';
 /**
  * Supported blockchain networks
  */
-export type SupportedNetwork = 'base' | 'ethereum' | 'arbitrum' | 'optimism' | 'polygon';
+export type SupportedNetwork = 'base' | 'ethereum' | 'arbitrum' | 'optimism' | 'polygon' | 'localhost';
 
 /**
  * Supported DeFi protocols
