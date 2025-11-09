@@ -1,0 +1,10 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "CometConfiguration",
+  "sourceName": "contracts/CometConfiguration.sol",
+  "abi": [],
+  "bytecode": "0x60808060405234601357603a908160198239f35b600080fdfe600080fdfea2646970667358221220b22f2ea04abc8e69b171d22176afd720b9761db0329c869f1dc07c3618fc22dd64736f6c634300080f0033",
+  "deployedBytecode": "0x600080fdfea2646970667358221220b22f2ea04abc8e69b171d22176afd720b9761db0329c869f1dc07c3618fc22dd64736f6c634300080f0033",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}

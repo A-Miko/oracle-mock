@@ -14,44 +14,656 @@ import * as Contracts from ".";
 declare module "hardhat/types/runtime" {
   interface HardhatEthersHelpers extends HardhatEthersHelpersBase {
     getContractFactory(
-      name: "MockFeedDec18",
+      name: "Comet",
       signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.MockFeedDec18__factory>;
+    ): Promise<Contracts.Comet__factory>;
     getContractFactory(
-      name: "MockFeedDec8",
+      name: "Comet",
       signerOrOptions?: ethers.Signer | FactoryOptions
-    ): Promise<Contracts.MockFeedDec8__factory>;
+    ): Promise<Contracts.Comet__factory>;
+    getContractFactory(
+      name: "CometCore",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.CometCore__factory>;
+    getContractFactory(
+      name: "CometCore",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.CometCore__factory>;
+    getContractFactory(
+      name: "CometExt",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.CometExt__factory>;
+    getContractFactory(
+      name: "CometExtAssetList",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.CometExtAssetList__factory>;
+    getContractFactory(
+      name: "CometExtInterface",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.CometExtInterface__factory>;
+    getContractFactory(
+      name: "CometFactory",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.CometFactory__factory>;
+    getContractFactory(
+      name: "CometFactoryWithExtendedAssetList",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.CometFactoryWithExtendedAssetList__factory>;
+    getContractFactory(
+      name: "CometInterface",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.CometInterface__factory>;
+    getContractFactory(
+      name: "CometMainInterface",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.CometMainInterface__factory>;
+    getContractFactory(
+      name: "CometMainInterface",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.CometMainInterface__factory>;
+    getContractFactory(
+      name: "CometMath",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.CometMath__factory>;
+    getContractFactory(
+      name: "CometProxyAdmin",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.CometProxyAdmin__factory>;
+    getContractFactory(
+      name: "Deployable",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.Deployable__factory>;
+    getContractFactory(
+      name: "CometRewards",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.CometRewards__factory>;
+    getContractFactory(
+      name: "CometStorage",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.CometStorage__factory>;
+    getContractFactory(
+      name: "CometWithExtendedAssetList",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.CometWithExtendedAssetList__factory>;
+    getContractFactory(
+      name: "ERC20",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.ERC20__factory>;
+    getContractFactory(
+      name: "IAssetList",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.IAssetList__factory>;
+    getContractFactory(
+      name: "IAssetListFactory",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.IAssetListFactory__factory>;
+    getContractFactory(
+      name: "IAssetListFactoryHolder",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.IAssetListFactoryHolder__factory>;
+    getContractFactory(
+      name: "IERC20NonStandard",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.IERC20NonStandard__factory>;
+    getContractFactory(
+      name: "AggregatorInterface",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.AggregatorInterface__factory>;
+    getContractFactory(
+      name: "AggregatorV2V3Interface",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.AggregatorV2V3Interface__factory>;
+    getContractFactory(
+      name: "AggregatorV3Interface",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.AggregatorV3Interface__factory>;
+    getContractFactory(
+      name: "IPriceFeed",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.IPriceFeed__factory>;
+    getContractFactory(
+      name: "MockV3Aggregator",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.MockV3Aggregator__factory>;
+    getContractFactory(
+      name: "Ownable",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.Ownable__factory>;
+    getContractFactory(
+      name: "IERC1822Proxiable",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.IERC1822Proxiable__factory>;
+    getContractFactory(
+      name: "IBeacon",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.IBeacon__factory>;
+    getContractFactory(
+      name: "ERC1967Proxy",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.ERC1967Proxy__factory>;
+    getContractFactory(
+      name: "ERC1967Upgrade",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.ERC1967Upgrade__factory>;
+    getContractFactory(
+      name: "Proxy",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.Proxy__factory>;
+    getContractFactory(
+      name: "ProxyAdmin",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.ProxyAdmin__factory>;
+    getContractFactory(
+      name: "TransparentUpgradeableProxy",
+      signerOrOptions?: ethers.Signer | FactoryOptions
+    ): Promise<Contracts.TransparentUpgradeableProxy__factory>;
 
     getContractAt(
-      name: "MockFeedDec18",
+      name: "Comet",
       address: string | ethers.Addressable,
       signer?: ethers.Signer
-    ): Promise<Contracts.MockFeedDec18>;
+    ): Promise<Contracts.Comet>;
     getContractAt(
-      name: "MockFeedDec8",
+      name: "Comet",
       address: string | ethers.Addressable,
       signer?: ethers.Signer
-    ): Promise<Contracts.MockFeedDec8>;
+    ): Promise<Contracts.Comet>;
+    getContractAt(
+      name: "CometCore",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.CometCore>;
+    getContractAt(
+      name: "CometCore",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.CometCore>;
+    getContractAt(
+      name: "CometExt",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.CometExt>;
+    getContractAt(
+      name: "CometExtAssetList",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.CometExtAssetList>;
+    getContractAt(
+      name: "CometExtInterface",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.CometExtInterface>;
+    getContractAt(
+      name: "CometFactory",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.CometFactory>;
+    getContractAt(
+      name: "CometFactoryWithExtendedAssetList",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.CometFactoryWithExtendedAssetList>;
+    getContractAt(
+      name: "CometInterface",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.CometInterface>;
+    getContractAt(
+      name: "CometMainInterface",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.CometMainInterface>;
+    getContractAt(
+      name: "CometMainInterface",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.CometMainInterface>;
+    getContractAt(
+      name: "CometMath",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.CometMath>;
+    getContractAt(
+      name: "CometProxyAdmin",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.CometProxyAdmin>;
+    getContractAt(
+      name: "Deployable",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.Deployable>;
+    getContractAt(
+      name: "CometRewards",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.CometRewards>;
+    getContractAt(
+      name: "CometStorage",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.CometStorage>;
+    getContractAt(
+      name: "CometWithExtendedAssetList",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.CometWithExtendedAssetList>;
+    getContractAt(
+      name: "ERC20",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.ERC20>;
+    getContractAt(
+      name: "IAssetList",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.IAssetList>;
+    getContractAt(
+      name: "IAssetListFactory",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.IAssetListFactory>;
+    getContractAt(
+      name: "IAssetListFactoryHolder",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.IAssetListFactoryHolder>;
+    getContractAt(
+      name: "IERC20NonStandard",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.IERC20NonStandard>;
+    getContractAt(
+      name: "AggregatorInterface",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.AggregatorInterface>;
+    getContractAt(
+      name: "AggregatorV2V3Interface",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.AggregatorV2V3Interface>;
+    getContractAt(
+      name: "AggregatorV3Interface",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.AggregatorV3Interface>;
+    getContractAt(
+      name: "IPriceFeed",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.IPriceFeed>;
+    getContractAt(
+      name: "MockV3Aggregator",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.MockV3Aggregator>;
+    getContractAt(
+      name: "Ownable",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.Ownable>;
+    getContractAt(
+      name: "IERC1822Proxiable",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.IERC1822Proxiable>;
+    getContractAt(
+      name: "IBeacon",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.IBeacon>;
+    getContractAt(
+      name: "ERC1967Proxy",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.ERC1967Proxy>;
+    getContractAt(
+      name: "ERC1967Upgrade",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.ERC1967Upgrade>;
+    getContractAt(
+      name: "Proxy",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.Proxy>;
+    getContractAt(
+      name: "ProxyAdmin",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.ProxyAdmin>;
+    getContractAt(
+      name: "TransparentUpgradeableProxy",
+      address: string | ethers.Addressable,
+      signer?: ethers.Signer
+    ): Promise<Contracts.TransparentUpgradeableProxy>;
 
     deployContract(
-      name: "MockFeedDec18",
+      name: "Comet",
       signerOrOptions?: ethers.Signer | DeployContractOptions
-    ): Promise<Contracts.MockFeedDec18>;
+    ): Promise<Contracts.Comet>;
     deployContract(
-      name: "MockFeedDec8",
+      name: "Comet",
       signerOrOptions?: ethers.Signer | DeployContractOptions
-    ): Promise<Contracts.MockFeedDec8>;
+    ): Promise<Contracts.Comet>;
+    deployContract(
+      name: "CometCore",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.CometCore>;
+    deployContract(
+      name: "CometCore",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.CometCore>;
+    deployContract(
+      name: "CometExt",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.CometExt>;
+    deployContract(
+      name: "CometExtAssetList",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.CometExtAssetList>;
+    deployContract(
+      name: "CometExtInterface",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.CometExtInterface>;
+    deployContract(
+      name: "CometFactory",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.CometFactory>;
+    deployContract(
+      name: "CometFactoryWithExtendedAssetList",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.CometFactoryWithExtendedAssetList>;
+    deployContract(
+      name: "CometInterface",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.CometInterface>;
+    deployContract(
+      name: "CometMainInterface",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.CometMainInterface>;
+    deployContract(
+      name: "CometMainInterface",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.CometMainInterface>;
+    deployContract(
+      name: "CometMath",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.CometMath>;
+    deployContract(
+      name: "CometProxyAdmin",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.CometProxyAdmin>;
+    deployContract(
+      name: "Deployable",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.Deployable>;
+    deployContract(
+      name: "CometRewards",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.CometRewards>;
+    deployContract(
+      name: "CometStorage",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.CometStorage>;
+    deployContract(
+      name: "CometWithExtendedAssetList",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.CometWithExtendedAssetList>;
+    deployContract(
+      name: "ERC20",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.ERC20>;
+    deployContract(
+      name: "IAssetList",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.IAssetList>;
+    deployContract(
+      name: "IAssetListFactory",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.IAssetListFactory>;
+    deployContract(
+      name: "IAssetListFactoryHolder",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.IAssetListFactoryHolder>;
+    deployContract(
+      name: "IERC20NonStandard",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.IERC20NonStandard>;
+    deployContract(
+      name: "AggregatorInterface",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.AggregatorInterface>;
+    deployContract(
+      name: "AggregatorV2V3Interface",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.AggregatorV2V3Interface>;
+    deployContract(
+      name: "AggregatorV3Interface",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.AggregatorV3Interface>;
+    deployContract(
+      name: "IPriceFeed",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.IPriceFeed>;
+    deployContract(
+      name: "MockV3Aggregator",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.MockV3Aggregator>;
+    deployContract(
+      name: "Ownable",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.Ownable>;
+    deployContract(
+      name: "IERC1822Proxiable",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.IERC1822Proxiable>;
+    deployContract(
+      name: "IBeacon",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.IBeacon>;
+    deployContract(
+      name: "ERC1967Proxy",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.ERC1967Proxy>;
+    deployContract(
+      name: "ERC1967Upgrade",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.ERC1967Upgrade>;
+    deployContract(
+      name: "Proxy",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.Proxy>;
+    deployContract(
+      name: "ProxyAdmin",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.ProxyAdmin>;
+    deployContract(
+      name: "TransparentUpgradeableProxy",
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.TransparentUpgradeableProxy>;
 
     deployContract(
-      name: "MockFeedDec18",
+      name: "Comet",
       args: any[],
       signerOrOptions?: ethers.Signer | DeployContractOptions
-    ): Promise<Contracts.MockFeedDec18>;
+    ): Promise<Contracts.Comet>;
     deployContract(
-      name: "MockFeedDec8",
+      name: "Comet",
       args: any[],
       signerOrOptions?: ethers.Signer | DeployContractOptions
-    ): Promise<Contracts.MockFeedDec8>;
+    ): Promise<Contracts.Comet>;
+    deployContract(
+      name: "CometCore",
+      args: any[],
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.CometCore>;
+    deployContract(
+      name: "CometCore",
+      args: any[],
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.CometCore>;
+    deployContract(
+      name: "CometExt",
+      args: any[],
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.CometExt>;
+    deployContract(
+      name: "CometExtAssetList",
+      args: any[],
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.CometExtAssetList>;
+    deployContract(
+      name: "CometExtInterface",
+      args: any[],
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.CometExtInterface>;
+    deployContract(
+      name: "CometFactory",
+      args: any[],
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.CometFactory>;
+    deployContract(
+      name: "CometFactoryWithExtendedAssetList",
+      args: any[],
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.CometFactoryWithExtendedAssetList>;
+    deployContract(
+      name: "CometInterface",
+      args: any[],
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.CometInterface>;
+    deployContract(
+      name: "CometMainInterface",
+      args: any[],
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.CometMainInterface>;
+    deployContract(
+      name: "CometMainInterface",
+      args: any[],
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.CometMainInterface>;
+    deployContract(
+      name: "CometMath",
+      args: any[],
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.CometMath>;
+    deployContract(
+      name: "CometProxyAdmin",
+      args: any[],
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.CometProxyAdmin>;
+    deployContract(
+      name: "Deployable",
+      args: any[],
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.Deployable>;
+    deployContract(
+      name: "CometRewards",
+      args: any[],
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.CometRewards>;
+    deployContract(
+      name: "CometStorage",
+      args: any[],
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.CometStorage>;
+    deployContract(
+      name: "CometWithExtendedAssetList",
+      args: any[],
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.CometWithExtendedAssetList>;
+    deployContract(
+      name: "ERC20",
+      args: any[],
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.ERC20>;
+    deployContract(
+      name: "IAssetList",
+      args: any[],
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.IAssetList>;
+    deployContract(
+      name: "IAssetListFactory",
+      args: any[],
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.IAssetListFactory>;
+    deployContract(
+      name: "IAssetListFactoryHolder",
+      args: any[],
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.IAssetListFactoryHolder>;
+    deployContract(
+      name: "IERC20NonStandard",
+      args: any[],
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.IERC20NonStandard>;
+    deployContract(
+      name: "AggregatorInterface",
+      args: any[],
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.AggregatorInterface>;
+    deployContract(
+      name: "AggregatorV2V3Interface",
+      args: any[],
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.AggregatorV2V3Interface>;
+    deployContract(
+      name: "AggregatorV3Interface",
+      args: any[],
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.AggregatorV3Interface>;
+    deployContract(
+      name: "IPriceFeed",
+      args: any[],
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.IPriceFeed>;
+    deployContract(
+      name: "MockV3Aggregator",
+      args: any[],
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.MockV3Aggregator>;
+    deployContract(
+      name: "Ownable",
+      args: any[],
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.Ownable>;
+    deployContract(
+      name: "IERC1822Proxiable",
+      args: any[],
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.IERC1822Proxiable>;
+    deployContract(
+      name: "IBeacon",
+      args: any[],
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.IBeacon>;
+    deployContract(
+      name: "ERC1967Proxy",
+      args: any[],
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.ERC1967Proxy>;
+    deployContract(
+      name: "ERC1967Upgrade",
+      args: any[],
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.ERC1967Upgrade>;
+    deployContract(
+      name: "Proxy",
+      args: any[],
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.Proxy>;
+    deployContract(
+      name: "ProxyAdmin",
+      args: any[],
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.ProxyAdmin>;
+    deployContract(
+      name: "TransparentUpgradeableProxy",
+      args: any[],
+      signerOrOptions?: ethers.Signer | DeployContractOptions
+    ): Promise<Contracts.TransparentUpgradeableProxy>;
 
     // default types
     getContractFactory(

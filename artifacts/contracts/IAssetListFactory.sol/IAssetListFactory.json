@@ -1,0 +1,67 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "IAssetListFactory",
+  "sourceName": "contracts/IAssetListFactory.sol",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "components": [
+            {
+              "internalType": "address",
+              "name": "asset",
+              "type": "address"
+            },
+            {
+              "internalType": "address",
+              "name": "priceFeed",
+              "type": "address"
+            },
+            {
+              "internalType": "uint8",
+              "name": "decimals",
+              "type": "uint8"
+            },
+            {
+              "internalType": "uint64",
+              "name": "borrowCollateralFactor",
+              "type": "uint64"
+            },
+            {
+              "internalType": "uint64",
+              "name": "liquidateCollateralFactor",
+              "type": "uint64"
+            },
+            {
+              "internalType": "uint64",
+              "name": "liquidationFactor",
+              "type": "uint64"
+            },
+            {
+              "internalType": "uint128",
+              "name": "supplyCap",
+              "type": "uint128"
+            }
+          ],
+          "internalType": "struct CometConfiguration.AssetConfig[]",
+          "name": "assetConfigs",
+          "type": "tuple[]"
+        }
+      ],
+      "name": "createAssetList",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "assetList",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}

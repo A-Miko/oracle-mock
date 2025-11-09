@@ -11,6 +11,7 @@ const CHAIN_ID = "31337";
 const PORT = "8545";
 const PROVIDER_URL = `http://localhost:${PORT}`;
 const MNEMONIC = "test test test test test test test test test test test junk";
+const FORK_BLOCK_NUMBER = "37744731";
 
 /** Wait until Anvil JSON-RPC responds */
 async function waitForAnvil() {
@@ -35,6 +36,7 @@ async function waitForAnvil() {
 async function main() {
   const args = [
     "--fork-url", FORK_URL,
+    "--fork-block-number", FORK_BLOCK_NUMBER,
     "--chain-id", CHAIN_ID,
     "--port", PORT,
     "--mnemonic", MNEMONIC,
@@ -45,7 +47,7 @@ async function main() {
     "--block-time", "1",
   ];
 
-  console.log("🚀 Launching Anvil Base fork...");
+  console.log(`🚀 Launching Anvil Base fork at block ${FORK_BLOCK_NUMBER}...`);
   const anvil = spawn("anvil", args, { stdio: "inherit" });
 
   // Save PID for cleanup
